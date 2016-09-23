@@ -1,0 +1,18 @@
+import flores.*
+test "la margarita no es linda" {
+	var margarita = new Flor("amarilla")
+	//margarita.color()
+	assert.notThat(margarita.esLinda())
+
+}
+
+test "un jardin de 100 flores azules gana premio" {
+	var miJardin = new Jardin()
+	100.times({miJardin.crecer(new Flor("azul"))})
+	assert.that(miJardin.ganaPremio())
+}
+test "un jardin de 100 flores mezcladas gana premio" {
+	var miJardin = new Jardin()
+	50.times({miJardin.crecer(new Flor("azul")) miJardin.crecer(new Orquidea("azul","ecuador"))})
+	assert.that(miJardin.ganaPremio())
+}
